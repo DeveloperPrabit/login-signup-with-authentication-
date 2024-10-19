@@ -74,18 +74,29 @@ loginBtn.addEventListener('click', () => {
     const email = document.querySelector('#inUsr').value.trim();
     const password = document.querySelector('#inPass').value;
 
+    if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+    }
+
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             if (user.emailVerified) {
                 console.log('User is signed in with a verified email.');
-                location.href = "signout.html"; // Redirect after successful login
+                location.href = "https://tournamet-nine.xyz"; // Redirect after successful login
             } else {
                 alert('Please verify your email before signing in.');
             }
         })
         .catch((error) => {
-            alert('Error signing in: ' + error.message);
+            if (error.code === 'auth/user-not-found') {
+                alert('User does not exist. Please check your email.');
+            } else if (error.code === 'auth/wrong-password') {
+                alert('Email or password does not match.');
+            } else {
+                alert('Error signing in: ' + error.message);
+            }
         });
 });
 
