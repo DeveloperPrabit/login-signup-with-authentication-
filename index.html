@@ -4,37 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <div class="container">
-        <!-- Signup Form -->
-        <div class="form registration hidden">
-            <header>Sign Up</header>
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="button" class="signupbtn button" value="Sign Up">
-            <div class="signup">Already have an account? <a id="loginLabel">Login</a></div>
-        </div>
-
-        <!-- Login Form -->
+        <!-- Login Form (Visible by default) -->
         <div class="form login">
             <header>Login</header>
             <input type="email" id="inUsr" placeholder="Email" required>
             <input type="password" id="inPass" placeholder="Password" required>
             <input type="button" class="loginbtn button" value="Login">
-            <div class="signup">Don't have an account? <a id="signupLabel">Sign Up</a></div>
-            <div class="forgot">Forgot your password? <a id="forgotLabel">Reset</a></div>
-        </div>
-
-        <!-- Forgot Password Form -->
-        <div class="form forgot hidden">
-            <header>Reset Password</header>
-            <input type="email" id="forgotinp" placeholder="Enter your email" required>
-            <input type="button" class="forgotbtn button" value="Send Reset Link">
-            <div class="signup">Remember your password? <a id="loginLabel">Login</a></div>
+            <div class="signup">Don't have an account? <a href="signup.html">Sign Up</a></div>
+            <div class="forgot">Forgot your password? <a href="forgot.html">Reset</a></div>
         </div>
     </div>
 
