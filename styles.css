@@ -1,110 +1,72 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-:root {
-  --primary-color: #009579;
-  --primary-hover: #006653;
-  --background-color: #222D32;
-  --container-bg: #fff;
-  --border-color: #ddd;
-  --text-color: #333;
-}
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  width: 100%;
-  background: var(--background-color);
+    min-height: 100vh;
+    width: 100%;
+    background: #222D32;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 430px;
-  width: 90%; /* Responsive width for smaller screens */
-  background: var(--container-bg);
-  border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.container .registration {
-  display: none;
+header {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.container .forgot {
-  display: none;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-#check {
-  display: none;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
 }
 
-.container .form {
-  padding: 2rem;
+input[type="button"].button {
+    background: #009579;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.form header {
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.form input {
-  height: 50px;
-  width: 100%;
-  padding: 0 15px;
-  font-size: 17px;
-  margin-bottom: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.form input:focus {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  border-color: var(--primary-color);
-}
-
-.form input::placeholder {
-  color: #999; /* Light placeholder color */
-}
-
-.form input.button {
-  color: #fff;
-  background: var(--primary-color);
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-top: 15px;
-  cursor: pointer;
-  transition: background 0.4s;
-}
-
-.form input.button:hover {
-  background: var(--primary-hover);
+input[type="button"].button:hover {
+    background: #006653;
 }
 
 .signup {
-  font-size: 17px;
-  text-align: center;
+    text-align: center;
+    margin-top: 15px;
 }
 
-.signup a {
-  color: var(--primary-color);
-  cursor: pointer;
-  text-decoration: none; /* Remove underline from link */
-}
-
-.signup a:hover {
-  text-decoration: underline;
+.forgot {
+    text-align: center;
+    margin-top: 15px;
 }
