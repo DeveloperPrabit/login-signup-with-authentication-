@@ -1,79 +1,110 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+
+:root {
+  --primary-color: #009579;
+  --primary-hover: #006653;
+  --background-color: #222D32;
+  --container-bg: #fff;
+  --border-color: #ddd;
+  --text-color: #333;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
   min-height: 100vh;
   width: 100%;
-  background: #222D32;
+  background: var(--background-color);
 }
-.container{
+
+.container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   max-width: 430px;
-  width: 100%;
-  background: #fff;
+  width: 90%; /* Responsive width for smaller screens */
+  background: var(--container-bg);
   border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
-.container .registration{
+
+.container .registration {
   display: none;
 }
-.container .forgot{
-  display:none;
-}
-#check{
+
+.container .forgot {
   display: none;
 }
-.container .form{
+
+#check {
+  display: none;
+}
+
+.container .form {
   padding: 2rem;
 }
-.form header{
+
+.form header {
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
   margin-bottom: 1.5rem;
 }
- .form input{
-   height: 50px;
-   width: 100%;
-   padding: 0 15px;
-   font-size: 17px;
-   margin-bottom: 10px;
-   border: 1px solid #ddd;
-   border-radius: 6px;
-   outline: none;
- }
- .form input:focus{
-   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
- }
-.form input.button{
+
+.form input {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
+}
+
+.form input::placeholder {
+  color: #999; /* Light placeholder color */
+}
+
+.form input.button {
   color: #fff;
-  background: #009579;
+  background: var(--primary-color);
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
   margin-top: 15px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: background 0.4s;
 }
-.form input.button:hover{
-  background: #006653;
+
+.form input.button:hover {
+  background: var(--primary-hover);
 }
-.signup{
+
+.signup {
   font-size: 17px;
   text-align: center;
 }
-.signup a{
-  color: #009579;
+
+.signup a {
+  color: var(--primary-color);
   cursor: pointer;
+  text-decoration: none; /* Remove underline from link */
 }
-.signup a:hover{
+
+.signup a:hover {
   text-decoration: underline;
 }
