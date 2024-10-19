@@ -9,6 +9,23 @@ const loginBtn = document.querySelector('.loginbtn');
 const resetBtn = document.querySelector('.resetbtn');
 const errorMessageDiv = document.getElementById('error-message');
 
+// Handle login
+loginBtn.addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    errorMessageDiv.innerText = '';
+    errorMessageDiv.style.display = 'none';
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+            window.location.href = "https://tournamet-nine.xyz"; // Redirect to your tournament website
+        })
+        .catch((error) => {
+            errorMessageDiv.innerText = error.message;
+            errorMessageDiv.style.display = 'block';
+        });
+});
 // Handle signup
 signupBtn.addEventListener('click', () => {
     const email = document.getElementById('email').value;
@@ -32,22 +49,7 @@ signupBtn.addEventListener('click', () => {
         });
 });
 
-// Handle login
-loginBtn.addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
 
-    errorMessageDiv.innerText = '';
-    errorMessageDiv.style.display = 'none';
-
-    auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-            window.location.href = "https://tournamet-nine.xyz"; // Redirect to your tournament website
-        })
-        .catch((error) => {
-            errorMessageDiv.innerText = error.message;
-            errorMessageDiv.style.display = 'block';
-        });
 // Handle password reset
 resetBtn.addEventListener('click', () => {
     const email = document.getElementById('email').value;
