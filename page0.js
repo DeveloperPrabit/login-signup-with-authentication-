@@ -35,6 +35,7 @@ signupBtn.addEventListener('click', () => {
 // Handle login
 // Handle login
 loginBtn.addEventListener('click', () => {
+loginBtn.addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
