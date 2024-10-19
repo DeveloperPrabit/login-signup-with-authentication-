@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <div class="container">
@@ -17,6 +17,24 @@
             <div class="signup">Don't have an account? <a href="signup.html">Sign Up</a></div>
             <div class="forgot">Forgot your password? <a href="forgot.html">Reset</a></div>
         </div>
+
+        <!-- Signup Form -->
+        <div class="form signup" style="display: none;">
+            <header>Sign Up</header>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <input type="button" class="signupbtn button" value="Sign Up">
+            <div class="login">Already have an account? <a href="#">Login</a></div>
+        </div>
+
+        <!-- Reset Password Form -->
+        <div class="form reset" style="display: none;">
+            <header>Reset Password</header>
+            <input type="email" id="resetEmail" placeholder="Email" required>
+            <input type="button" class="resetbtn button" value="Reset Password">
+            <div class="login">Remembered your password? <a href="#">Login</a></div>
+        </div>
+
         <div id="error-message" style="color: red; display: none;"></div>
     </div>
 
