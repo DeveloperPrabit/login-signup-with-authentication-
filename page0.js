@@ -33,6 +33,7 @@ signupBtn.addEventListener('click', () => {
 });
 
 // Handle login
+// Handle login
 loginBtn.addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -41,8 +42,15 @@ loginBtn.addEventListener('click', () => {
     errorMessageDiv.style.display = 'none';
 
     auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-            window.location.href = "https://tournamet-nine.xyz"; // Redirect to your tournament website
+        .then((userCredential) => {
+            const user = userCredential.user;
+            if (user.emailVerified) {
+                window.location.href = "https://tournamet-nine.xyz"; // Redirect to your tournament website
+            } else {
+                errorMessageDiv.innerText = "Please verify your email before logging in.";
+                errorMessageDiv.style.display = 'block';
+                auth.signOut(); // Sign out if email is not verified
+            }
         })
         .catch((error) => {
             errorMessageDiv.innerText = error.message;
