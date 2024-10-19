@@ -48,8 +48,9 @@ signupBtn.addEventListener('click', () => {
             return user.sendEmailVerification();
         })
         .then(() => {
-            alert("Verification email sent! Please check your inbox.");
-            window.location.href = "index.html"; // Redirect to login after signup
+            // Show success message and redirect to login
+            alert("Sign up successful! Verification email sent. Please check your inbox.");
+            window.location.href = "index.html"; // Redirect to login page
         })
         .catch((error) => {
             // Show error message
