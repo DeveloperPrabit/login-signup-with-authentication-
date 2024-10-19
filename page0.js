@@ -48,8 +48,6 @@ loginBtn.addEventListener('click', () => {
             errorMessageDiv.innerText = error.message;
             errorMessageDiv.style.display = 'block';
         });
-});
-
 // Handle password reset
 resetBtn.addEventListener('click', () => {
     const email = document.getElementById('email').value;
