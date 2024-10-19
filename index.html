@@ -54,7 +54,8 @@
         }
 
         /* Button styling */
-        form input[type="button"].button {
+        form input[type="button"].button,
+        .resetbtn {
             width: 100%;
             padding: 15px;
             margin: 15px 0;
@@ -75,10 +76,16 @@
             background-color: #45a049;
         }
 
-        /* Forgot Password button styling */
+        /* Forgot Password button styling (using anchor) */
         .resetbtn {
             background-color: #f44336;
             color: white;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         .resetbtn:hover {
@@ -116,7 +123,7 @@
             <input type="email" id="email" placeholder="Enter your email" required>
             <input type="password" id="password" placeholder="Enter your password" required>
             <input type="button" class="button loginbtn" value="Login">
-            <input type="button" class="button resetbtn" value="Forgot Password"><a href="forgot.html"></a>
+            <a href="forgot.html" class="resetbtn">Forgot Password</a>
         </form>
         <div class="signup">
             <span>Don't have an account? <a href="signup.html">Signup</a></span>
