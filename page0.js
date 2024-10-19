@@ -1,40 +1,18 @@
-// Initialize Firebase
-import { firebaseConfig } from "./config.js"; // Import your Firebase config
+// Import Firebase configuration and initialize
+import { firebaseConfig } from "./config.js"; // Ensure this path is correct
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// DOM Elements
-const loginBtn = document.querySelector('.loginbtn');
+// Select the signup button, login button, reset button, and error message display
 const signupBtn = document.querySelector('.signupbtn');
-const resetBtn = document.querySelector('.resetbtn');
+const loginBtn = document.querySelector('.loginbtn'); // Add this to your HTML
+const resetBtn = document.querySelector('.resetbtn'); // Add this to your HTML
 const errorMessageDiv = document.getElementById('error-message');
-
-// Login Functionality
-loginBtn.addEventListener('click', () => {
-    const email = document.getElementById('inUsr').value;
-    const password = document.getElementById('inPass').value;
-
-    // Clear previous error messages
-    errorMessageDiv.innerText = '';
-    errorMessageDiv.style.display = 'none';
-
-    // Sign in with Firebase Authentication
-    auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-            // Redirect to your website on successful login
-            window.location.href = "https://tournamet-nine.xyz"; // Redirect URL
-        })
-        .catch((error) => {
-            // Show error message
-            errorMessageDiv.innerText = error.message; // Get error message
-            errorMessageDiv.style.display = 'block'; // Display error message
-        });
-});
 
 // Signup Functionality
 signupBtn.addEventListener('click', () => {
-    const email = document.getElementById('signupEmail').value; // Ensure this ID matches your HTML
-    const password = document.getElementById('signupPassword').value; // Ensure this ID matches your HTML
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     // Clear previous error messages
     errorMessageDiv.innerText = '';
@@ -49,32 +27,59 @@ signupBtn.addEventListener('click', () => {
         })
         .then(() => {
             // Show success message and redirect to login
-            alert("Sign up successful! Verification email sent. Please check your inbox.");
+            alert("Signup successful! A verification email has been sent to your email address. Please verify your email.");
             window.location.href = "index.html"; // Redirect to login page
         })
         .catch((error) => {
             // Show error message
-            errorMessageDiv.innerText = error.message; // Get error message
-            errorMessageDiv.style.display = 'block'; // Display error message
+            errorMessageDiv.innerText = error.message;
+            errorMessageDiv.style.display = 'block';
         });
 });
 
-// Password Reset Functionality
-resetBtn.addEventListener('click', () => {
-    const email = document.getElementById('resetEmail').value; // Ensure this ID matches your HTML
+// Login Functionality
+loginBtn.addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     // Clear previous error messages
     errorMessageDiv.innerText = '';
     errorMessageDiv.style.display = 'none';
 
-    // Send password reset email
-    auth.sendPasswordResetEmail(email)
+    // Sign in with Firebase Authentication
+    auth.signInWithEmailAndPassword(email, password)
         .then(() => {
-            alert("Password reset email sent! Please check your inbox.");
+            // Successful login
+            window.location.href = "https://tournamet-nine.xyz"; // Redirect to your tournament website
         })
         .catch((error) => {
             // Show error message
-            errorMessageDiv.innerText = error.message; // Get error message
-            errorMessageDiv.style.display = 'block'; // Display error message
+            errorMessageDiv.innerText = error.message;
+            errorMessageDiv.style.display = 'block';
         });
+});
+
+// Password Reset Functionality
+resetBtn.addEventListener('click', () => {
+    const email = document.getElementById('email').value;
+
+    // Clear previous error messages
+    errorMessageDiv.innerText = '';
+    errorMessageDiv.style.display = 'none';
+
+    if (email) {
+        // Send password reset email
+        auth.sendPasswordResetEmail(email)
+            .then(() => {
+                alert("Password reset email sent! Please check your inbox.");
+            })
+            .catch((error) => {
+                // Show error message
+                errorMessageDiv.innerText = error.message;
+                errorMessageDiv.style.display = 'block';
+            });
+    } else {
+        errorMessageDiv.innerText = "Please enter your email address.";
+        errorMessageDiv.style.display = 'block';
+    }
 });
